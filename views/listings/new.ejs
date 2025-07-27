@@ -1,0 +1,93 @@
+<% layout("/layouts/boilerplate.ejs") %>
+  
+    <div class="row">
+    <div class="col-8 offset-2">
+    <h4 class="mb-4 mt-3">Add new listing</h4>
+    <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+      <div class="mb-4">
+        <label for="title" class="form-label">Title: </label>
+        <input
+          type="text"
+          placeholder="title"
+          name="listing[title]"
+          id="title"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Title is required,Choose a unique title</div>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="form-label">Description:</label>
+        <textarea
+          type="text"
+          placeholder="Description"
+          name="listing[description]"
+          id="description"
+          rows="5"
+          cols="27"
+          class="form-control"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Write a short description</div>
+      </div>
+       <div class="mb-4">
+        <label for="imgURL" class="form-label">Upload Listing Image : </label>
+        <input
+          type="file"
+          name="listing[image]"
+          id="imgURL"
+          class="form-control"
+          required
+        />
+      </div>
+        <div class="mb-4">
+          <label for="category" class="form-label">Select your category: </label>
+          <select name="listing[category]" id="category" class="form-control" required>
+            <option disabled selected>Select Category</option>
+            <% for(let category of listingCategorys) {%>
+                <option value="<%= category %>"> <%= category %> </option>
+              <% } %>
+          </select>
+        </div>
+      <div class="row">
+        <div class="mb-4 col-md-4">
+        <label for="price" class="form-label">Price: </label>
+        <input
+          type="text"
+          placeholder="Price"
+          name="listing[price]"
+          id="price"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Price should be valid</div>
+      </div>
+      <div class="mb-4 col-md-8">
+        <label for="location" class="form-label">Location: </label>
+        <input
+          type="text"
+          placeholder="location"
+          name="listing[location]"
+          id="location"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Locaiton should be valid</div>
+      </div>
+      </div>
+      <div class="mb-4">
+        <label for="country" class="form-label">Country: </label>
+        <input
+          type="text"
+          placeholder="country"
+          name="listing[country]"
+          id="country"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Country should be valid</div>
+      </div>
+      <button class="btn btn-dark mb-5">ADD New</button>
+    </form>
+    </div>
+</div>

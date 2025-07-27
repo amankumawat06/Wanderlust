@@ -1,0 +1,77 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="filters-container">
+<div id="filters">
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <p>Cities</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-mountain"></i></div>
+    <p>Mountains</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-chess-rook"></i></div>
+    <p>Castles</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-person-swimming"></i></div>
+    <p>Amazing Pools</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-campground"></i></div>
+    <p>Camping</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-cow"></i></div>
+    <p>Farms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-snowflake"></i></div>
+    <p>Arctic</p>
+  </div>
+</div>
+
+  <div class="tax-toggle">
+    <div class="form-check form-switch form-check-reverse divDesign">
+      <input class="form-check-input" type="checkbox" id="switchCheckReverse" />
+      <label class="form-check-label" for="switchCheckReverse"
+        >Display total after taxes</label
+      >
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 mt-1" id="listingContainer">
+  <% for(let Listing of AllListings) {%>
+  <a href="/listings/<%= Listing._id %>" class="listing-link listing-wrapper" data-category="<%= Listing.category %>">
+    <div class="card listing-card">
+      <div class="card-img-overlay"></div>
+      <img src="<%= Listing.image.url %>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p class="card-title"><%= Listing.title %></p>
+        <p class="card-text">
+          <span class="price" data-price="<%= Listing.price %>">
+            <!--data-price is the custom html attribute -->
+            &#8377; <%= Listing.price ? Listing.price.toLocaleString("en-IN") :
+            "N/A" %> / night
+          </span>
+          <i class="tax-info"> &nbsp; +18%GST</i>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+    
+
+<script src="/js/filters.js"></script>
+<script src="/js/tax.js"></script>
