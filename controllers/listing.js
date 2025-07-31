@@ -35,6 +35,7 @@ module.exports.createNewListing = async (req, res, next) => {
 
     const url = req.file.path;
     const filename = req.file.filename;
+    console.log("Inside createNewListing. Value of req.file:", req.file);
     let listing = req.body.listing;
     let result = listingSchema.validate(listing);
     let newListing = new Listing(listing);
@@ -123,6 +124,7 @@ module.exports.updateListing = async (req, res) => {
     const url = req.file.path;
     const filename = req.file.filename;
     UpdatedListing.image = { url, filename };
+    console.log("Inside updateListing. Value of req.file:", req.file);
   }
   await UpdatedListing.save();
 
