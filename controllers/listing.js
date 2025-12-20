@@ -25,6 +25,8 @@ module.exports.renderNewFrom = (req, res) => {
 
 module.exports.createNewListing = async (req, res, next) => {
   try {
+    console.log("REQ.FILE => ", req.file);
+    console.log("REQ.BODY => ", req.body);
     const location = req.body.listing.location;
     const coords = await getCoordinates(location);
 
