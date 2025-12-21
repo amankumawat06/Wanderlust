@@ -219,3 +219,35 @@ footer {
     width: 300px;
     border-radius: 4px;
 }
+
+@media (max-width:767px) {
+  .ErrorResponsive{
+    width: 100% !important;
+    margin-left: 0 !important;
+  } 
+}
+
+@media (max-width:578px) {
+  .ErrorResponsive{
+    margin-left: 60px !important;
+    width: 80% !important;
+  }
+}
+
+@media (max-width:550px) {
+  .ErrorResponsive{
+    margin-left: 37px !important;
+    width: 80% !important;
+  }
+}
+
+@media (max-width:315px) {
+  .ErrorResponsive{
+    margin-left: 15px !important;
+  }
+}
+
+/* Tax Box */
+.tax-info{
+  display: none;
+}
