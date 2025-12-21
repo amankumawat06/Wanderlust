@@ -37,7 +37,10 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(dbUrl, {
+    connectTimeoutMS: 10000,
+    family: 4
+  });
 }
 
 const store = MongoStore.create({
