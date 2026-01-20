@@ -25,8 +25,6 @@ module.exports.renderNewFrom = (req, res) => {
 
 module.exports.createNewListing = async (req, res, next) => {
   try {
-    console.log("REQ.FILE => ", req.file);
-    console.log("REQ.BODY => ", req.body);
     const location = req.body.listing.location;
     const coords = await getCoordinates(location);
 
@@ -35,9 +33,9 @@ module.exports.createNewListing = async (req, res, next) => {
       return res.redirect("/listings/new");
     }
 
-    const url = req.file.path;
+    const url = req.file?.path;
     const filename = req.file.filename;
-    console.log("Inside createNewListing. Value of req.file:", req.file);
+    // console.log("Inside createNewListing. Value of req.file:", req.file);
     let listing = req.body.listing;
     let result = listingSchema.validate(listing);
     let newListing = new Listing(listing);
@@ -126,7 +124,7 @@ module.exports.updateListing = async (req, res) => {
     const url = req.file.path;
     const filename = req.file.filename;
     UpdatedListing.image = { url, filename };
-    console.log("Inside updateListing. Value of req.file:", req.file);
+    // console.log("Inside updateListing. Value of req.file:", req.file);
   }
   await UpdatedListing.save();
 

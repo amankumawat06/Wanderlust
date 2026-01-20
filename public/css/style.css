@@ -109,6 +109,12 @@ footer {
   }
 }
 
+@media (max-width:410px) {
+  .afterOpen{
+    height: 330px !important;
+  }
+}
+
 .btn-dark {
   background-color: #fe424d !important;
   border: none !important;
@@ -250,4 +256,13 @@ footer {
 /* Tax Box */
 .tax-info{
   display: none;
+}
+
+@media (max-width:410px) {
+  .card-img-top{
+    height: 240px !important;
+  }
+  .afterOpen{
+    height: 250px !important;
+  }
 }
