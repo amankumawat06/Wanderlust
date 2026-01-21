@@ -50,6 +50,8 @@ module.exports.createNewListing = async (req, res, next) => {
     res.redirect("/listings");
   } catch (err) {
     console.log(err);
+    req.flash("error","Failed to create listing, Try again!")
+    return res.redirect("/listings/new")
   }
 };
 
