@@ -88,7 +88,7 @@ Make sure you have Installed these tools in your VS Code to run the project loca
 
 Command - git clone https://github.com/amankumawat06/Wanderlust.git
 
-⿻Copy the above command and 📌paste it on your VS Code Terminal inside an empty folder
+⿻ Copy the above command and 📌paste it on your VS Code Terminal inside an empty folder
 
 ##
 
